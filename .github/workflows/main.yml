@@ -4,16 +4,15 @@ on:
   push:
     branches:
       - master
- 
-jobs:
+ jobs:
   top-secret:
     runs-on: ubuntu-latest
     env:
-      MY_ENVVARIABLE: ${{ vars.ENVVARIABLE }}
+      MY_APP_ID: ${{ vars.APP_ID }}
 
     steps:
       - name: Read a variable
-        run: echo "My ENVVARIABLE value is ${{ vars.ENVVARIABLE }}"
+        run: echo "My APP_ID value is ${{ vars.APP_ID }}"
 
       - name: Tell me a secret!
         run: echo "My existing secret is ${{ secrets.API_KEY }}"
@@ -25,7 +24,7 @@ jobs:
         run: echo "My Github repo is called ${{ github.repository }}"
       
       - name: Read an env variable
-        run: echo "My ENVVARIABLE value is ${{ env.ENVVARIABLE }} (also accessible as $ENVVARIABLE)"
+        run: echo "My APP_ID value is ${{ env.APP_ID }} (also accessible as $MY_APP_ID)"
 
       - uses: actions/checkout@v2
       - name: Read the env from an external script
@@ -38,10 +37,8 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     env:
-      ENVVARIABLE: ${{ vars.ENVVARIABLE }}
+      APP_ID: ${{ vars.APP_ID }}
 
     steps:
       - name: Read a variable
-        run: echo "My ENVVARIABLE value in the production job is $ENVVARIABLE"
-
-        
+        run: echo "My APP_ID value in the production job is $APP_ID"
