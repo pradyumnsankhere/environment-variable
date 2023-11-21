@@ -10,11 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      MY_VARIABLE: production
+      MY_VARIABLE: MY_VARIABLE
 
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
     - name: Use Environment Variable
-      run: echo "My environment variable value is ${{ env.MY_VARIABLE }}"
+      run: echo "My  vlue---${{ env.MY_VARIABLE }}"
