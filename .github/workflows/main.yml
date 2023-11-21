@@ -17,7 +17,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Use Environment Variable
-      run: echo "My  vlue---${{ env.MY_VARIABLE }}"
+      run: echo "My value---${{ env.MY_VARIABLE }}"
 
   top-secret-production:
     runs-on: ubuntu-latest
@@ -27,4 +27,4 @@ jobs:
       
     steps:
       - name: Read a variable
-        run: echo "My MY_ENVVARIABLE value in the production job is ---$MY_ENVVARIABLE"
+        run: echo "My MY_ENVVARIABLE value in the production job is ---${{ env.MY_ENVVARIABLE }}"
