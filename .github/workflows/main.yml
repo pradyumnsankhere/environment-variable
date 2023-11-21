@@ -1,9 +1,7 @@
 name: My Workflow
 
 on:
-  push:
-    branches:
-      - master
+   - master
  jobs:
   top-secret:
     runs-on: ubuntu-latest
