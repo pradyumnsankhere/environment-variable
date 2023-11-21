@@ -1,16 +1,19 @@
 name: My Workflow
 
 on:
-   - master
- jobs:
+  push:
+    branches:
+      - master
+ 
+jobs:
   top-secret:
     runs-on: ubuntu-latest
     env:
-      MY_APP_ID: ${{ vars.APP_ID }}
+      MY_ENVVARIABLE: ${{ vars.ENVVARIABLE }}
 
     steps:
       - name: Read a variable
-        run: echo "My APP_ID value is ${{ vars.APP_ID }}"
+        run: echo "My ENVVARIABLE value is ${{ vars.ENVVARIABLE }}"
 
       - name: Tell me a secret!
         run: echo "My existing secret is ${{ secrets.API_KEY }}"
@@ -22,7 +25,7 @@ on:
         run: echo "My Github repo is called ${{ github.repository }}"
       
       - name: Read an env variable
-        run: echo "My APP_ID value is ${{ env.APP_ID }} (also accessible as $MY_APP_ID)"
+        run: echo "My ENVVARIABLE value is ${{ env.ENVVARIABLE }} (also accessible as $ENVVARIABLE)"
 
       - uses: actions/checkout@v2
       - name: Read the env from an external script
@@ -35,8 +38,10 @@ on:
     runs-on: ubuntu-latest
     environment: production
     env:
-      APP_ID: ${{ vars.APP_ID }}
+      ENVVARIABLE: ${{ vars.ENVVARIABLE }}
 
     steps:
       - name: Read a variable
-        run: echo "My APP_ID value in the production job is $APP_ID"
+        run: echo "My ENVVARIABLE value in the production job is $ENVVARIABLE"
+
+        
