@@ -19,12 +19,12 @@ jobs:
     - name: Use Environment Variable
       run: echo "My  vlue---${{ env.MY_VARIABLE }}"
 
-    top-secret-production:
+  top-secret-production:
     runs-on: ubuntu-latest
     environment: production
     env:
-      APP_ID: ${{ vars.MY_VARIABLE }}
-
+      MY_ENVVARIABLE: ${{ secrets.MY_VARIABLE }}
+      
     steps:
       - name: Read a variable
-        run: echo "My APP_ID value in the production job is $APP_ID"
+        run: echo "My MY_ENVVARIABLE value in the production job is ---$MY_ENVVARIABLE"
