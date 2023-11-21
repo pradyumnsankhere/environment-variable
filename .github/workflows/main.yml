@@ -5,8 +5,6 @@ on:
     branches:
       - master
  
- 
-
 jobs:
   top-secret:
     runs-on: ubuntu-latest
@@ -27,7 +25,7 @@ jobs:
         run: echo "My Github repo is called ${{ github.repository }}"
       
       - name: Read an env variable
-        run: echo "My ENVVARIABLE value is ${{ env.ENVVARIABLE }} (also accessible as $MY_ENVVARIABLE)"
+        run: echo "My ENVVARIABLE value is ${{ env.ENVVARIABLE }} (also accessible as $ENVVARIABLE)"
 
       - uses: actions/checkout@v2
       - name: Read the env from an external script
