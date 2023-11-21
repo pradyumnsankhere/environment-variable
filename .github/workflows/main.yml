@@ -27,10 +27,7 @@ jobs:
       - name: Read an env variable
         run: echo "My APP_ID value is ${{ env.APP_ID }} (also accessible as $MY_APP_ID)"
 
-      - uses: actions/checkout@v2
-      - name: Read the env from an external script
-        run:  Read data
-          shell: bash
+      
   
   top-secret-production:
     runs-on: ubuntu-latest
